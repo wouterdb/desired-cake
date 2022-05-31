@@ -1,5 +1,5 @@
 state
 .env
-libs
+libs/std
 data
 dump

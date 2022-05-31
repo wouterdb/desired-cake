@@ -1,1 +1,16 @@
-std::print("Hello world!")
+import cooking
+
+entity CitroenTaart:
+end
+
+implement CitroenTaart using citroen_taart_recept
+
+implementation citroen_taart_recept for CitroenTaart:
+    cooking::Buy(what="bladerdeeg")
+    cooking::Bake(action="Bak het bladerdeeg blind af")
+    cooking::Buy(what="citroencreme")
+    cooking::Merge(action="Verdeel de citroencreme over de taartbodem.")
+end
+
+
+CitroenTaart()

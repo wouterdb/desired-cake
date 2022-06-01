@@ -1,9 +1,4 @@
-entity Bake extends std::PurgeableResource:
-    string action
-    string agent = "internal"
-end
-
-entity Merge extends std::PurgeableResource:
+entity Do extends std::PurgeableResource:
     string action
     string agent = "internal"
 end
@@ -13,6 +8,5 @@ entity Buy extends std::PurgeableResource:
     string agent = "internal"
 end
 
-implement Bake using std::none
-implement Merge using std::none
+implement Do using std::none
 implement Buy using std::none

@@ -20,11 +20,7 @@ from inmanta.agent.handler import CRUDHandler, ResourcePurged, HandlerContext, p
 import os
 from typing import List
 
-@resource(name="cooking::Bake", id_attribute="action", agent="agent")
-class Bake(PurgeableResource):
-    fields = ("action",)
-
-@resource(name="cooking::Merge", id_attribute="action", agent="agent")
+@resource(name="cooking::Do", id_attribute="action", agent="agent")
 class Bake(PurgeableResource):
     fields = ("action",)
 
@@ -37,9 +33,8 @@ class Bake(PurgeableResource):
         return "Koop " + resource.what
 
 
-@provider(resource_type="cooking::Merge", name="merge")
+@provider(resource_type="cooking::Do", name="do")
 @provider(resource_type="cooking::Buy", name="buy")
-@provider(resource_type="cooking::Bake", name="bake")
 class CookHandler(CRUDHandler):
 
     def read(self) -> List[str]:

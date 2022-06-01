@@ -10,11 +10,11 @@ implementation citroen_taart_recept for CitroenTaart:
     d2 = cooking::Do(action="Wrijf de boter en bloem tussen uw handpalmen.")
     d3 = cooking::Do(action="Meng vanile en poedersuiker met het deeg.")
     d4 = cooking::Do(action="Maak een kuiltje in het midden en breek de eieren erin.")
-    d5 = cooking::Do(action="Werk de ingredieneten met uw vingertoppen tot een zacht deeg.")
+    d5 = cooking::Do(action="Werk de ingredienten met uw vingertoppen tot een zacht deeg.")
     b1 = cooking::Do(action="Bak de bodem blind af.")
 
-    v1 = cooking::Do(action="Rasp de citroenschil boven een grote kom. Boeg suiker toe. Klop de eieren en het citroensap er door.")
-    v2 = cooking::Do(action="Warm op au bain marie. Blijf met een gard kloppen tot een temperatuur van 82-83 graden.")
+    v1 = cooking::Do(action="Rasp de citroenschil boven een grote kom. Voeg suiker toe. Klop de eieren en het citroensap er door.")
+    v2 = cooking::Do(action="Warm op au bain marie. Blijf met een garde kloppen tot een temperatuur van 82-83 graden.")
     v3 = cooking::Do(action="Giet de creme door een zeef en laat roerend afkoelen tot 60. Klopt er met een staafmixer de blokjes boter door.")
 
     v4 = cooking::Do(action="Verdeel de citroencreme over de taartbodem.")

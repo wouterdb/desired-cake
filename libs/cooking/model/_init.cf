@@ -1,12 +1,22 @@
-entity Do extends std::PurgeableResource:
-    string action
+entity Step extends std::PurgeableResource:
     string agent = "internal"
+    int idx
 end
 
-entity Buy extends std::PurgeableResource:
+entity Do extends Step:
+    string action
+end
+
+entity Buy extends Step:
     string what
     string agent = "internal"
+
+    int idx
 end
 
-implement Do using std::none
-implement Buy using std::none
+implement Do using idx
+implement Buy using idx
+
+implementation idx for Step:
+    self.idx = get_idx(me=self)
+end

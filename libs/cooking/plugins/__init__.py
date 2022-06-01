@@ -15,22 +15,29 @@
 
     Contact: code@inmanta.com
 """
+from inmanta.plugins import plugin
 from inmanta.resources import resource, PurgeableResource
 from inmanta.agent.handler import CRUDHandler, ResourcePurged, HandlerContext, provider
 import os
+import time
 from typing import List
 
 @resource(name="cooking::Do", id_attribute="action", agent="agent")
 class Bake(PurgeableResource):
-    fields = ("action",)
-
-@resource(name="cooking::Buy", id_attribute="action", agent="agent")
-class Bake(PurgeableResource):
-    fields = ("action",)
+    fields = ("action", )
 
     @staticmethod
     def get_action(exporter, resource):
-        return "Koop " + resource.what
+         return str(resource.idx) + " " + resource.action
+
+
+@resource(name="cooking::Buy", id_attribute="action", agent="agent")
+class Buy(PurgeableResource):
+    fields = ("action", )
+
+    @staticmethod
+    def get_action(exporter, resource):
+        return str(resource.idx) + " Koop " + resource.what
 
 
 @provider(resource_type="cooking::Do", name="do")
@@ -61,3 +68,7 @@ class CookHandler(CRUDHandler):
         content = self.read()
         content.remove(resource.action.strip())
         self.write(content)
+
+@plugin
+def get_idx(me: "cooking::Step") -> "int":
+    return max((i.idx for i in me.requires), default=0)+1

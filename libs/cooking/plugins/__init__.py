@@ -71,4 +71,9 @@ class CookHandler(CRUDHandler):
 
 @plugin
 def get_idx(me: "cooking::Step") -> "int":
-    return max((i.idx for i in me.requires), default=0)+1
+    def get_idx(val):
+        if hasattr(val, "idx"):
+            return val.idx
+        return 0
+
+    return max((get_idx(i) for i in me.requires), default=0)+1
